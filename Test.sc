@@ -1,17 +1,19 @@
 val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-val shift = 7
 val inputText = "GHMABGZ VKXTMXL LNVVXLL EBDX GHG-LMHI, XGMANLBTLMBV XYYHKM"
-val outputText = inputText.map((c: Char) => {
+def f(shift: Int): Unit = {
+  val outputText = inputText.map((c: Char) => {
 
-  val x = alphabet.indexOf(c.toUpper)
+    val x = alphabet.indexOf(c.toUpper)
 
-  if (x == -1){
-    c
-  }
-  else
-  {
-    alphabet((x + shift) % alphabet.size)		}
-});
-
-
-println(outputText);
+    if (x == -1) {
+      c
+    }
+    else {
+      alphabet((x + shift) % alphabet.size)
+    }
+  });
+  println(outputText);
+}
+for (i <- 1 to 25) {
+  f(i)
+}
